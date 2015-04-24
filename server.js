@@ -63,7 +63,7 @@ if(!process.env.C9_PROJECT) {
 	app.set('trust proxy', true);
 	app.use(function(req, res, next) {
 		if(!req.secure) {
-			return res.redirect('https://' + req.get('Host') + req.url);
+			// return res.redirect('https://' + req.get('Host') + req.url);
 		}
 		next();
 	});

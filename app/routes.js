@@ -38,7 +38,7 @@ module.exports = function(app, passport, mongoose) {
 			});
 		}
 	});
-	
+
 	// process the username form
 	app.post('/username', isLoggedIn, function(req, res) {
 		if(!req.user.username) {
@@ -65,6 +65,12 @@ module.exports = function(app, passport, mongoose) {
 
 	app.get('/game', [isLoggedIn, hasUsername], function(req, res) {
 		res.render('game.ejs', {
+			user : req.user
+		});
+	});
+
+	app.get('/game.jsx', [isLoggedIn, hasUsername], function(req, res) {
+		res.render('game_jsx.ejs', {
 			user : req.user
 		});
 	});
